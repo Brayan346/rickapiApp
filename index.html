@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick y Morty App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <h1>Bienvenido a la App de Rick y Morty</h1>
+    </div>
+
+    <!-- Menú de pestañas -->
+    <nav id="tabs-menu">
+        <button class="tab-link" onclick="openTab('home')">Inicio</button>
+        <button class="tab-link" onclick="openTab('search')">Buscar</button>
+        <button class="tab-link" onclick="openTab('favorites')">Favoritos</button>
+        <button class="tab-link" onclick="openTab('profile')">Perfil</button>
+        <button class="tab-link" onclick="openTab('episodes')">Episodios</button>
+        <button class="tab-link" onclick="openTab('locations')">Ubicaciones</button>
+    </nav>
+
+    <!-- Contenedor flexible -->
+    <div id="content-wrapper">
+        <div class="tab-content" id="home">
+            <h2>Personajes</h2>
+            <div id="characters-list"></div>
+        </div>
+
+        <div class="tab-content" id="search">
+            <h2>Buscar Personajes</h2>
+            <input type="text" id="search-box" placeholder="Buscar personaje...">
+            <button id="search-button">🔍 Buscar</button>
+            <div id="search-results"></div>
+        </div>
+
+        <div class="tab-content" id="favorites">
+            <h2>Mis Favoritos</h2>
+            <div id="favorite-list"></div>
+        </div>
+
+        <div class="tab-content" id="profile">
+            <form id="register-form">
+                <input type="text" placeholder="Nombre">
+                <input type="email" placeholder="Correo electrónico">
+                <input type="password" placeholder="Contraseña">
+                <input type="text" placeholder="Edad">
+                <input type="text" placeholder="País">
+                <input type="text" placeholder="Teléfono">
+                <input type="text" placeholder="Género">
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+
+        <div class="tab-content" id="episodes">
+            <h2>Episodios</h2>
+            <div id="episodes-list"></div>
+        </div>
+
+        <div class="tab-content" id="locations">
+            <h2>Ubicaciones</h2>
+            <div id="locations-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
