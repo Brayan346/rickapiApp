@@ -1,7 +1,7 @@
 /* Estilos Generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #88e23b;
+    background-color: #88E23B;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -62,7 +62,7 @@ body {
 .tab-content {
     display: none;
     padding: 20px;
-    background-color: #282c34;
+    background-color: #ebe480;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-top: 10px;
