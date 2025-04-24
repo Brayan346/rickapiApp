@@ -22,6 +22,7 @@
         <button class="tab-link" onclick="openTab('profile')">Perfil</button>
         <button class="tab-link" onclick="openTab('episodes')">Episodios</button>
         <button class="tab-link" onclick="openTab('locations')">Ubicaciones</button>
+        <button class="tab-link" onclick="openTab('meeseeks')">Mr. Meeseeks</button> <!-- Nueva pestaña -->
     </nav>
 
     <!-- Contenedor flexible -->
@@ -64,6 +65,13 @@
         <div class="tab-content" id="locations">
             <h2>Ubicaciones</h2>
             <div id="locations-list"></div>
+        </div>
+
+        <!-- Nueva pestaña de Mr. Meeseeks -->
+        <div class="tab-content" id="meeseeks">
+            <h2>¡Presiona para invocar a un Mr. Meeseeks!</h2>
+            <button onclick="addMeeseeks()">🟦 ¡Soy Mr. Meeseeks, mírame! 🟦</button>
+            <div id="meeseeks-container"></div>
         </div>
     </div>
 
