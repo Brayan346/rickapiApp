@@ -140,24 +140,36 @@ function openTab(tabName) {
 
 // Función para generar Mr. Meeseeks dinámicamente
 function addMeeseeks() {
-    const meeseeksContainer = document.getElementById("meeseeks-container");
+    fetch("https://rickandmortyapi.com/api/character/?name=Mr. Meeseeks")
+        .then(response => response.json())
+        .then(data => {
+            if (data.results && data.results.length > 0) {
+                const meeseeksContainer = document.getElementById("meeseeks-container");
+                
+                // Extraer datos de la API
+                const meeseeksData = data.results[0]; // Primer resultado de la búsqueda
+                
+                // Crear el div de Mr. Meeseeks
+                const meeseeks = document.createElement("div");
+                meeseeks.classList.add("meeseeks");
+                
+                // Incluir imagen y texto dinámicamente
+                meeseeks.innerHTML = `
+                    <img src="${meeseeksData.image}" alt="Mr. Meeseeks">
+                    <p>¡Mírame!</p>
+                `;
 
-    // Crear el div de Mr. Meeseeks
-    const meeseeks = document.createElement("div");
-    meeseeks.classList.add("meeseeks");
+                meeseeksContainer.appendChild(meeseeks);
 
-    // Incluir imagen y texto de Meeseeks
-    meeseeks.innerHTML = `
-        <img src="https://upload.wikimedia.org/wikipedia/en/6/69/Mr._Meeseeks.png" alt="Mr. Meeseeks">
-        <p>¡Mírame!</p>
-    `;
-
-    meeseeksContainer.appendChild(meeseeks);
-
-    // Se elimina después de 5 segundos con animación
-    setTimeout(() => {
-        meeseeks.classList.add("vanish"); 
-        setTimeout(() => meeseeks.remove(), 500);
-    }, 5000);
+                // Se elimina después de 5 segundos con animación
+                setTimeout(() => {
+                    meeseeks.classList.add("vanish"); 
+                    setTimeout(() => meeseeks.remove(), 500);
+                }, 5000);
+            } else {
+                console.error("No se encontró a Mr. Meeseeks en la API.");
+            }
+        })
+        .catch(error => console.error("Error obteniendo Mr. Meeseeks:", error));
 }
 
