@@ -138,22 +138,20 @@ function openTab(tabName) {
     }
 }
 
-// Función para generar Mr. Meeseeks dinámicamente
 function addMeeseeks() {
-    fetch("https://rickandmortyapi.com/api/character/?name=Mr. Meeseeks")
+    fetch("https://rickandmortyapi.com/api/character")
         .then(response => response.json())
         .then(data => {
-            if (data.results && data.results.length > 0) {
+            // Buscar manualmente a Mr. Meeseeks en la lista de personajes
+            const meeseeksData = data.results.find(character => character.name === "Mr. Meeseeks");
+
+            if (meeseeksData) {
                 const meeseeksContainer = document.getElementById("meeseeks-container");
                 
-                // Extraer datos de la API
-                const meeseeksData = data.results[0]; // Primer resultado de la búsqueda
-                
-                // Crear el div de Mr. Meeseeks
                 const meeseeks = document.createElement("div");
                 meeseeks.classList.add("meeseeks");
-                
-                // Incluir imagen y texto dinámicamente
+
+                // Agregar imagen y texto
                 meeseeks.innerHTML = `
                     <img src="${meeseeksData.image}" alt="Mr. Meeseeks">
                     <p>¡Mírame!</p>
@@ -161,7 +159,7 @@ function addMeeseeks() {
 
                 meeseeksContainer.appendChild(meeseeks);
 
-                // Se elimina después de 5 segundos con animación
+                // Se elimina después de 5 segundos
                 setTimeout(() => {
                     meeseeks.classList.add("vanish"); 
                     setTimeout(() => meeseeks.remove(), 500);
@@ -172,4 +170,5 @@ function addMeeseeks() {
         })
         .catch(error => console.error("Error obteniendo Mr. Meeseeks:", error));
 }
+
 
