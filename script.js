@@ -25,7 +25,7 @@ function displayCharacters(characters) {
             <img src="${character.image}" alt="${character.name}">
             <h3>${character.name}</h3>
             <p>${character.status} - ${character.species}</p>
-            <button class="favorite-button" onclick="addToFavorites('${character.id}', '${character.name}', '${character.image}')">❤️ Agregar a Favoritos</button>
+            <button class="favorite-button" onclick="addToFavorites('${character.id}', '${character.name}', '${character.image}')">Agregar a Favoritos</button>
         `;
         charactersList.appendChild(characterCard);
     });
