@@ -1,16 +1,38 @@
+/* Definición de colores inspirados en Rick y Morty */
+:root {
+    --verde-neon: #00ff00;
+    --amarillo-neon: #ffcc00;
+    --morado-fuerte: #22007c;
+    --fondo-oscuro: #0a0a0a;
+}
 
+/* Ajuste global */
 body {
-    font-family: 'Press Start 2P', cursive;
-    background-color: #121212;
-    color: #00ff99;
+    font-family: "Arial", sans-serif; /* Fuente alternativa sin importar */
+    background-color: var(--fondo-oscuro);
+    color: var(--verde-neon);
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
+/* Fondo espacial */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--verde-neon), var(--morado-fuerte));
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Contenedor principal */
 #content-wrapper {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
     max-width: 900px;
@@ -23,29 +45,67 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    background-color: #22007c;
+    background-color: var(--verde-neon);
     padding: 15px;
+    border-bottom: 3px solid var(--amarillo-neon);
+    box-shadow: 0px 5px 15px var(--amarillo-neon);
 }
 
 .tab-link {
+    background: none;
+    border: 2px solid var(--amarillo-neon);
+    color: black;
     font-size: 1em;
     padding: 12px;
     width: 100%;
-    max-width: 150px; /* Limita tamaño en desktop */
+    max-width: 150px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Ajustes específicos para móviles */
+.tab-link:hover {
+    background-color: var(--morado-fuerte);
+    color: var(--verde-neon);
+}
+
+/* Estilos de pestañas */
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: rgba(0, 255, 153, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px var(--verde-neon);
+}
+
+/* Botones */
+button {
+    background-color: var(--amarillo-neon);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--morado-fuerte);
+    color: var(--verde-neon);
+}
+
+/* Ajustes para móviles */
 @media (max-width: 600px) {
     body {
-        font-size: 14px; /* Texto más legible */
+        font-size: 14px;
     }
 
     #tabs-menu {
-        flex-direction: column; /* Menú en columna */
+        flex-direction: column;
     }
 
     .tab-link {
-        width: 100%; /* Que ocupe todo el ancho en móvil */
+        width: 100%;
     }
 
     .tab-content {
