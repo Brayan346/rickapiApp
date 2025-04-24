@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openTab("home"); // Asegura que la primera pestaña sea visible
 });
 
-// 🔍 Obtener personajes desde la API
+//Obtener personajes desde la API
 function fetchCharacters() {
     fetch("https://rickandmortyapi.com/api/character")
         .then(response => response.json())
@@ -14,7 +14,7 @@ function fetchCharacters() {
         .catch(error => console.error("Error al obtener los personajes:", error));
 }
 
-// 🏗 Mostrar personajes en pantalla
+//Mostrar personajes en pantalla
 function displayCharacters(characters) {
     const charactersList = document.getElementById("characters-list");
     charactersList.innerHTML = "";
@@ -31,7 +31,7 @@ function displayCharacters(characters) {
     });
 }
 
-// 📺 Obtener episodios
+//Obtener episodios
 function fetchEpisodes() {
     fetch("https://rickandmortyapi.com/api/episode")
         .then(response => response.json())
@@ -39,7 +39,7 @@ function fetchEpisodes() {
         .catch(error => console.error("Error al obtener episodios:", error));
 }
 
-// 🏗 Mostrar episodios
+//Mostrar episodios
 function displayEpisodes(episodes) {
     const episodesList = document.getElementById("episodes-list");
     episodesList.innerHTML = "";
@@ -55,7 +55,7 @@ function displayEpisodes(episodes) {
     });
 }
 
-// 🌎 Obtener ubicaciones
+//Obtener ubicaciones
 function fetchLocations() {
     fetch("https://rickandmortyapi.com/api/location")
         .then(response => response.json())
@@ -63,7 +63,7 @@ function fetchLocations() {
         .catch(error => console.error("Error al obtener ubicaciones:", error));
 }
 
-// 🏗 Mostrar ubicaciones
+//Mostrar ubicaciones
 function displayLocations(locations) {
     const locationsList = document.getElementById("locations-list");
     locationsList.innerHTML = "";
@@ -79,7 +79,7 @@ function displayLocations(locations) {
     });
 }
 
-// 💖 Agregar a favoritos
+//Agregar a favoritos
 function addToFavorites(id, name, image) {
     const favoritesList = document.getElementById("favorite-list");
     const favoriteCard = document.createElement("div");
@@ -87,17 +87,17 @@ function addToFavorites(id, name, image) {
     favoriteCard.innerHTML = `
         <img src="${image}" alt="${name}">
         <h3>${name}</h3>
-        <button class="remove-button" onclick="removeFavorite(this)">❌ Eliminar</button>
+        <button class="remove-button" onclick="removeFavorite(this)">Eliminar</button>
     `;
     favoritesList.appendChild(favoriteCard);
 }
 
-// ❌ Remover de favoritos
+//Remover de favoritos
 function removeFavorite(button) {
     button.parentElement.remove();
 }
 
-// 🔍 Buscar personaje
+//Buscar personaje
 function searchCharacter() {
     const query = document.getElementById("search-box").value.toLowerCase();
     fetch(`https://rickandmortyapi.com/api/character/?name=${query}`)
@@ -113,7 +113,7 @@ function searchCharacter() {
                         <img src="${character.image}" alt="${character.name}">
                         <h3>${character.name}</h3>
                         <p>${character.status} - ${character.species}</p>
-                        <button class="favorite-button" onclick="addToFavorites('${character.id}', '${character.name}', '${character.image}')">❤️ Agregar a Favoritos</button>
+                        <button class="favorite-button" onclick="addToFavorites('${character.id}', '${character.name}', '${character.image}')">Agregar a Favoritos</button>
                     `;
                     searchResults.appendChild(characterCard);
                 });
@@ -124,7 +124,7 @@ function searchCharacter() {
         .catch(error => console.error("Error en la búsqueda:", error));
 }
 
-// 🔁 Cambio de pestañas
+//Cambio de pestañas
 function openTab(tabName) {
     document.querySelectorAll(".tab-content").forEach(tab => {
         tab.style.display = "none"; // Oculta todas las pestañas antes de mostrar la seleccionada
